@@ -11,7 +11,10 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    'prettier/prettier': ['warn', { usePrettierrc: true, semi: false }],
+    'prettier/prettier': [
+      'warn',
+      { printWidth: 100, semi: false, singleQuote: true, trailingComma: 'all' },
+    ],
     'require-jsdoc': 'off',
   },
-};
+}
