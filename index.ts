@@ -23,7 +23,7 @@ export default function runner(
             }
             const [files] = await bucket.getFiles({ prefix: `${hash}/` })
             await Promise.all(files.map(download))
-            await download(commitFile) // commit file after we're sure all content is downloaded
+            await download(commitFile)
             console.log(`retrieved ${files.length + 1} files from cache gs://${bucket.name}/${hash}`)
             return true
         } catch (e) {
@@ -47,7 +47,7 @@ export default function runner(
         try {
             await uploadDirectory(join(cacheDirectory, hash))
             await Promise.all(tasks)
-            await bucket.upload(join(cacheDirectory, `${hash}.commit`)) // commit file once we're sure all content is uploaded
+            await bucket.upload(join(cacheDirectory, `${hash}.commit`))
             console.log(`stored ${tasks.length + 1} files in cache gs://${bucket.name}/${hash}`)
             return true
         } catch (e) {
