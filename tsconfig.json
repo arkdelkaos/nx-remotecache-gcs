@@ -1,7 +1,9 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "target": "es2019",
     "module": "commonjs",
+    "outDir": "./dist",
     "declaration": true,
     "sourceMap": true,
     "removeComments": true,
@@ -19,5 +21,8 @@
     "useUnknownInCatchVariables": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
 }
